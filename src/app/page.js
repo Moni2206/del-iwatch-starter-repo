@@ -1,65 +1,110 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import Heading from "./components/Heading";
+
+import { CiSearch } from "react-icons/ci";
+import { FiShoppingBag } from "react-icons/fi";
 
 export default function Home() {
+  const [watch, setWatch] = useState("/navy.png");
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="bg-[#BDD3DF] min-h-screen">
+      {/* NAVBAR */}
+      <nav className="flex justify-between items-center px-10 py-4 text-white">
+        <Heading />
+
+        <div className="flex gap-8">
+          <CiSearch size={30} />
+          <FiShoppingBag size={30} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </nav>
+
+      {/* HERO */}
+      <section className="flex items-center justify-between px-16 py-20">
+        <div className="max-w-xl">
+          <h1 className="text-5xl font-semibold text-white leading-tight">The Perfect Moment</h1>
+          <h2 className="text-5xl text-white/80 mt-4">Between Past And Future.</h2>
+
+          <button className="mt-10 px-8 py-3 border border-white rounded-full text-white hover:bg-white hover:text-black transition">Buy Now</button>
         </div>
-      </main>
-    </div>
+
+        <div className="relative">
+          {/* ur billedet*/}
+          <Image src={watch} width={400} height={400} alt="watch" className="drop-shadow-2xl" priority />
+
+          {/* faver */}
+          <div className="absolute right-[-40px] top-1/2 -translate-y-1/2 flex flex-col gap-3">
+            <button onClick={() => setWatch("/navy.png")} className="w-6 h-6 rounded-full bg-black border-2"></button>
+
+            <button onClick={() => setWatch("/mint.png")} className="w-6 h-6 rounded-full bg-green-400 border-2"></button>
+
+            <button onClick={() => setWatch("/ocean.png")} className="w-6 h-6 rounded-full bg-[#cfdee4]"></button>
+          </div>
+        </div>
+      </section>
+
+      <section className="flex justify-center gap-6 pb-10">
+        <button onClick={() => setWatch("/navy.png")}>
+          <Image src="/navy.png" width={100} height={100} alt="watch" />
+        </button>
+
+        <button onClick={() => setWatch("/mint.png")}>
+          <Image src="/mint.png" width={100} height={100} alt="watch" />
+        </button>
+
+        <button onClick={() => setWatch("/ocean.png")}>
+          <Image src="/ocean.png" width={100} height={100} alt="watch" />
+        </button>
+      </section>
+    </main>
   );
 }
+
+// import Image from "next/image";
+// import Heading from "./components/Heading";
+// import { FaApple } from "react-icons/fa";
+// import { CiSearch } from "react-icons/ci";
+// import { FiShoppingBag } from "react-icons/fi";
+
+// export default function Home() {
+//   return (
+//     <>
+//       <Heading />
+//       <FaApple size={70} />
+//       <CiSearch size={40} />
+//       <FiShoppingBag size={40} />
+
+//       <main>
+//         <section>
+//           <div>
+//             <div>
+//               <h1>The Perfect Moment Between Past And Future.</h1>
+//             </div>
+
+//             <div>{/* knap */}</div>
+//           </div>
+
+//           <div>
+//             <div>
+//               <Image src="/mint.png" width={500} height={500} alt="Picture of watch" priority />
+//             </div>
+//             <div>{/* farve knapper */}</div>
+//           </div>
+//         </section>
+
+//         <section>
+//           <div>
+//             <div>
+//               <Image src="/navy.png" width={100} height={100} alt="watch" />
+//               <Image src="/mint.png" width={100} height={100} alt="watch" />
+//               <Image src="/ocean.png" width={100} height={100} alt="watch" />
+//             </div>
+//           </div>
+//         </section>
+//       </main>
+//     </>
+//   );
+// }
