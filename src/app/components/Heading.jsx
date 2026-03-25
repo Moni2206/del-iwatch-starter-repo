@@ -3,9 +3,7 @@ import { FaApple } from "react-icons/fa";
 const Heading = () => {
   return (
     <nav className="flex justify-between items-center px-10 py-4 text-white">
-      <FaApple size={40} />
-
-      <ul className="flex gap-10 text-align-center text-2xl">
+      <ul className="flex gap-10 text-align-center text-xl font-bold">
         <li>Mac</li>
         <li>iPhone</li>
         <li>iPad</li>
