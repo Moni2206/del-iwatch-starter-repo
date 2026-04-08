@@ -19,9 +19,29 @@ const Color = ({ setWatch }) => {
           <Image src="/mint.png" width={100} height={100} alt="watch" />
         </button>
 
-        <button onClick={() => setWatch("/ocean.png")} className="bg-[#bfdbe6] rounded-lg p-1">
-          <Image src="/ocean.png" width={100} height={100} alt="watch" />
+        <button onClick={() => setWatch("/ocean.png")}>
+          <div className="bg-[#bfdbe6] rounded-lg p-1">
+            <Image src="/ocean.png" width={100} height={100} alt="watch" />
+          </div>
         </button>
+
+        {/* <button onClick={() => setWatch("/ocean.png")}>
+          <div
+            style={{
+              content: "",
+              position: "absolute",
+              bottom: "10px",
+              right: "10px",
+              zIndex: 1,
+              height: "10px",
+              width: "40%",
+              backgroundColor: "#bfdbe6",
+              borderradius: "10px",
+            }}
+          >
+            <Image src="/ocean.png" width={100} height={100} alt="watch" />
+          </div>
+        </button> */}
       </section>
     </div>
   );
